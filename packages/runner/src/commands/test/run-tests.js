@@ -244,6 +244,7 @@ async function runTests(flatConfigurations, options) {
             chromeFlags: options.chromeFlags,
             dockerWithSudo: options.dockerWithSudo,
             chromeDockerWithoutSeccomp: options.chromeDockerWithoutSeccomp,
+            dockerArg: options.dockerArg,
           }),
           configurations,
           options.chromeConcurrency,

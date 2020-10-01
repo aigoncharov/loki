@@ -46,6 +46,7 @@ function createChromeDockerTarget({
   chromeFlags = ['--headless', '--disable-gpu', '--hide-scrollbars'],
   dockerWithSudo = false,
   chromeDockerWithoutSeccomp = false,
+  dockerArg = '',
 }) {
   let port;
   let dockerId;
@@ -113,7 +114,8 @@ function createChromeDockerTarget({
         '--remote-debugging-address=0.0.0.0',
         `--remote-debugging-port=${port}`,
       ])
-      .concat(chromeFlags);
+      .concat(chromeFlags)
+      .concat(dockerArg);
 
     debug(
       `Launching chrome in docker with command "${dockerPath} ${args.join(
